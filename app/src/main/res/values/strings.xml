@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Brain Shaker : Quiz App</string>
+    <string name="brain_shaker">BRAIN SHAKER</string>
+    <string name="quiz_app">Quiz App</string>
+    <string name="todo">TODO</string>
+    <string name="start">START</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="name"><![CDATA[<Name>]]></string>
+    <string name="name1">Name</string>
+    <string name="enter">_____________________________</string>
+    <string name="_30s">30s</string>
+    <string name="_0">0</string>
+    <string name="_2_3">2 + 3</string>
+    <string name="_25">25</string>
+    <string name="_35">35</string>
+    <string name="_29">29</string>
+    <string name="_39">39</string>
+
+
+</resources>
