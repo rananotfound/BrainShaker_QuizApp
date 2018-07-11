@@ -32,7 +32,8 @@ String temp=null;
                     msg.setText("You can't leave this Empty !");
                 else{
                     Intent game=new Intent(MainActivity.this,Main2Activity.class);
-                    game.putExtra("Name", String.valueOf(name));
+                    String str=name.getText().toString();
+                    game.putExtra("Name",str);
                     startActivity(game);
 
                     MainActivity.this.finish();

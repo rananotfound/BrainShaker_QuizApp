@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HighScoreBoard">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:id="@+id/table_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/ca"
+                android:layout_width="70dp"
+                android:layout_height="45dp"
+                android:text="CORRECT ANSWERS"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/ia"
+                android:layout_width="73dp"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp"
+                android:text="INCORRECT ANSWERS"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/sc"
+                android:layout_width="57dp"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp"
+                android:text="SCORES"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="238dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/ac"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="5dp"
+                android:text="ACCURACY (%)"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="308dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/tqa"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="TOTAL QUESTIONS ANSWERED"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+    </TableLayout>
+</android.support.constraint.ConstraintLayout>

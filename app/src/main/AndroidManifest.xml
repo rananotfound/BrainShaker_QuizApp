@@ -23,7 +23,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".Main2Activity" />
-        <activity android:name=".ScoreBoard"></activity>
+        <activity android:name=".ScoreBoard" />
+        <activity android:name=".HighScoreBoard"></activity>
     </application>
 
 </manifest>

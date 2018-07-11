@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Random;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 
 public class Main2Activity extends AppCompatActivity
 {
@@ -20,7 +20,7 @@ public class Main2Activity extends AppCompatActivity
     static int scores=0;
     long time=30;
     int score=0;
-    final int max=100;
+    final int max=80;
     final int min=1;
     CountDownTimer obj=null;
     int i1,i2,i3,i4;
@@ -28,6 +28,7 @@ public class Main2Activity extends AppCompatActivity
     int correct_answers =0;
     int choice_number=0;
     int score_temp;
+
 
     Random r;
     @Override
@@ -41,7 +42,8 @@ public class Main2Activity extends AppCompatActivity
         score_card=findViewById(R.id.score);
         name=findViewById(R.id.name);
 
-
+        final String str2 = getIntent().getStringExtra("Name");
+        name.setText("Hi "+str2);
 
         Question();
 
@@ -52,7 +54,7 @@ public class Main2Activity extends AppCompatActivity
 
             public void onTick(long millisUntilFinished)
             {
-                timer.setText(" " + millisUntilFinished / 1000+" ");
+                timer.setText(" " + millisUntilFinished / 1000+"s");
                 time=millisUntilFinished / 1000;
 
             }
@@ -63,13 +65,13 @@ public class Main2Activity extends AppCompatActivity
                 timer.setText(" 00 ");
                 Toast.makeText(Main2Activity.this,"Time Up!",Toast.LENGTH_LONG).show();
                 Intent intent = getIntent();
-                final String player_name = intent.getStringExtra("player");
+//                final String player_name = getIntent().getStringExtra("Name");
 
                 Intent intent_score=new Intent(Main2Activity.this,ScoreBoard.class);
-                intent_score.putExtra("score",String.valueOf(score));
-                intent_score.putExtra("player",String.valueOf(player_name));
-                intent_score.putExtra("questions",String.valueOf(total_questions));
-                intent_score.putExtra("correct",String.valueOf(correct_answers));
+                intent_score.putExtra("Score",String.valueOf(score_temp));
+                intent_score.putExtra("Name",str2);
+                intent_score.putExtra("Questions",String.valueOf(total_questions));
+                intent_score.putExtra("Correct",String.valueOf(correct_answers));
                 startActivity(intent_score);
 
                 Main2Activity.this.finish();
@@ -88,16 +90,20 @@ public class Main2Activity extends AppCompatActivity
 
 
         r=new Random();
+
         int m=r.nextInt((max-min)+1)+min;
         int n=r.nextInt((max-min)+1)+min;
+
         String ques=Integer.toString(m)+" + "+Integer.toString(n);
         question.setText(ques);
 
-        choice_number=r.nextInt((3))+1;
-        i4=m+n;
+        choice_number=r.nextInt((4))+1;
+
         i1 = r.nextInt((max - min) + 1) ;
         i2 = r.nextInt((max - min) + 1) ;
         i3 = r.nextInt((max - min) + 1) ;
+        i4 = m+n;
+
         switch(choice_number){
 
             case 1: op1.setText(Integer.toString(i4));
@@ -113,17 +119,19 @@ public class Main2Activity extends AppCompatActivity
 
                         if(time>0)
                         {
-                            score_temp=Integer.parseInt((String) score_card.getText());
+
                             score_temp=score_temp+1;
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
                             total_questions=total_questions+1;
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             correct_answers=correct_answers+1;
                             Question();
 
                         }
-                        else{
-                            //get back
+                        else {
+
                             return;
                         }
 
@@ -137,11 +145,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
                         }
                         else
@@ -157,11 +167,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp-10;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
                         }
                         else
@@ -177,11 +189,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp-10;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
                         }
                         else
@@ -192,9 +206,9 @@ public class Main2Activity extends AppCompatActivity
                 break;
 
             case 2:     op2.setText(Integer.toString(i4));
-                op1.setText(Integer.toString(i1));
-                op3.setText(Integer.toString(i2));
-                op4.setText(Integer.toString(i3));
+                        op1.setText(Integer.toString(i1));
+                        op3.setText(Integer.toString(i2));
+                        op4.setText(Integer.toString(i3));
 
 
                 op2.setOnClickListener(new View.OnClickListener() {
@@ -205,11 +219,14 @@ public class Main2Activity extends AppCompatActivity
                             obj.start();
                         if(time>0)
                         {
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             score_temp=score_temp+1;
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+
                             total_questions=total_questions+1;
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             correct_answers=correct_answers+1;
                             Question();
 
@@ -228,11 +245,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp-10;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
 
                         }
@@ -249,11 +268,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp-10;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
 
                         }
@@ -270,11 +291,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp-10;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
 
                         }
@@ -300,11 +323,13 @@ public class Main2Activity extends AppCompatActivity
                             obj.start();
                         if(time>0)
                         {
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             score_temp=score_temp+1;
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
                             total_questions=total_questions+1;
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             correct_answers=correct_answers+1;
                             Question();
 
@@ -322,11 +347,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp-10;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
 
                         }
@@ -343,11 +370,13 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
-                            int score_temp=Integer.parseInt((String) score_card.getText());
+
                             total_questions=total_questions+1;
-//                            score_temp=score_temp-10;
+
                             score=score_temp;
-                            score_card.setText(Integer.toString(score_temp));
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
 
                         }
@@ -364,7 +393,12 @@ public class Main2Activity extends AppCompatActivity
                         if(total_questions==0)
                             obj.start();
                         if(time>0){
+
                             total_questions=total_questions+1;
+                            score=score_temp;
+                            String str1=Integer.toString(score_temp);
+                            String str2=Integer.toString(total_questions);
+                            score_card.setText(str1+"/"+str2);
                             Question();
 
                         }
@@ -389,11 +423,14 @@ public class Main2Activity extends AppCompatActivity
                                 obj.start();
                             if(time>0)
                             {
-                                int score_temp=Integer.parseInt((String) score_card.getText());
+
                                 score_temp=score_temp+1;
                                 score=score_temp;
-                                score_card.setText(Integer.toString(score_temp));
+
                                 total_questions=total_questions+1;
+                                String str1=Integer.toString(score_temp);
+                                String str2=Integer.toString(total_questions);
+                                score_card.setText(str1+"/"+str2);
                                 correct_answers=correct_answers+1;
                                 Question();
 
@@ -412,11 +449,13 @@ public class Main2Activity extends AppCompatActivity
                             if(total_questions==0)
                                 obj.start();
                             if(time>0){
-                                int score_temp=Integer.parseInt((String) score_card.getText());
+
                                 total_questions=total_questions+1;
-//                                score_temp=score_temp-10;
+
                                 score=score_temp;
-                                score_card.setText(Integer.toString(score_temp));
+                                String str1=Integer.toString(score_temp);
+                                String str2=Integer.toString(total_questions);
+                                score_card.setText(str1+"/"+str2);
                                 Question();
 
                             }
@@ -433,11 +472,13 @@ public class Main2Activity extends AppCompatActivity
                             if(total_questions==0)
                                 obj.start();
                             if(time>0){
-                                int score_temp=Integer.parseInt((String) score_card.getText());
+
                                 total_questions=total_questions+1;
-//                                score_temp=score_temp-10;
+
                                 score=score_temp;
-                                score_card.setText(Integer.toString(score_temp));
+                                String str1=Integer.toString(score_temp);
+                                String str2=Integer.toString(total_questions);
+                                score_card.setText(str1+"/"+str2);
                                 Question();
 
                             }
@@ -454,11 +495,13 @@ public class Main2Activity extends AppCompatActivity
                             if(total_questions==0)
                                 obj.start();
                             if(time>0){
-                                int score_temp=Integer.parseInt((String) score_card.getText());
+
                                 total_questions=total_questions+1;
-//                                score_temp=score_temp-10;
+
                                 score=score_temp;
-                                score_card.setText(Integer.toString(score_temp));
+                                String str1=Integer.toString(score_temp);
+                                String str2=Integer.toString(total_questions);
+                                score_card.setText(str1+"/"+str2);
                                 Question();
                             }
                             else
@@ -467,7 +510,6 @@ public class Main2Activity extends AppCompatActivity
                         }
                     });
                     break;
-
 
             }
 
