@@ -27,12 +27,14 @@ public class ScoreBoard extends AppCompatActivity {
         String player_new = getIntent().getStringExtra("Name"); //contains the name of player
         final Integer answers_right = Integer.parseInt(getIntent().getStringExtra("Correct"));
         final Integer total_questions=Integer.parseInt(getIntent().getStringExtra("Questions"));
-
+        final Integer incorrect_answer = total_questions-answers_right;
+        float percentage = ((float)answers_right / (float)total_questions)*100.00f;
 
         score.setText(score_new);
         name.setText(player_new);
 
-
+        ScoreDataBase scoreDataBase = new ScoreDataBase(ScoreBoard.this);
+        scoreDataBase.addData(answers_right.toString(),incorrect_answer.toString(),score_new, percentage,total_questions.toString());
 
 
         new_game.setOnClickListener(new View.OnClickListener()

@@ -45,7 +45,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/timer"
-        android:background="#ff398a"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="@color/colorAccent"
         android:paddingLeft="10dp"
         android:text="@string/_0"
         android:textSize="30sp"
@@ -64,7 +65,7 @@
             android:id="@+id/button"
             android:layout_width="178dp"
             android:layout_height="143dp"
-            android:background="@drawable/mybutton"
+            android:background="@color/colorPrimaryDark"
             android:text="@string/_25"
             android:textSize="40sp"
             android:textStyle="bold" />

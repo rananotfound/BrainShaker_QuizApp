@@ -2,6 +2,7 @@ package com.ashutoshrana.brainshakerquizapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -32,7 +33,7 @@ public class ScoreDataBase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addData(String correct_answer,String incorrect_answer, String score, String percentage, String total_question_answered ){
+    public void addData(String correct_answer, String incorrect_answer, String score, String percentage, String total_question_answered ){
 
         // Open the database for writing
         SQLiteDatabase db = this.getWritableDatabase();
@@ -69,6 +70,12 @@ public class ScoreDataBase extends SQLiteOpenHelper {
             // Close database
         }
 
+    }
+    public Cursor getData()
+    {
+        SQLiteDatabase db =getWritableDatabase();
+        Cursor cursor = db.query(TABLE_NAME+"",null,null,null,null,null,null);
+        return  cursor;
     }
 
 
