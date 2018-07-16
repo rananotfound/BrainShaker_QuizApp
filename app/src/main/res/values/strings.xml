@@ -22,6 +22,11 @@
     <string name="high_score">High Score</string>
     <string name="namex">NAME</string>
     <string name="_0">0</string>
+    <string name="correct_answer">Correct Answer</string>
+    <string name="incorrect_answer">Incorrect Answer</string>
+
+    <string name="percentage">Percentage</string>
+    <string name="total_question_answered">Total Question Answered</string>
 
 
 </resources>

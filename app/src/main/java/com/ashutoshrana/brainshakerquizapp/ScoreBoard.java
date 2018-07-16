@@ -23,8 +23,9 @@ public class ScoreBoard extends AppCompatActivity {
         high_score=findViewById(R.id.button6);
 
 
-        String score_new = getIntent().getStringExtra("Score"); //contains the score of present game
-        String player_new = getIntent().getStringExtra("Name"); //contains the name of player
+        String score_new = getIntent().getStringExtra("Score");
+        String player_new = getIntent().getStringExtra("Name");
+
         final Integer answers_right = Integer.parseInt(getIntent().getStringExtra("Correct"));
         final Integer total_questions=Integer.parseInt(getIntent().getStringExtra("Questions"));
         final Integer incorrect_answer = total_questions-answers_right;

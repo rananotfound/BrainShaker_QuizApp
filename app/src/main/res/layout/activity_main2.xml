@@ -19,7 +19,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="59dp"
-        android:background="#fbff00"
+        android:background="@drawable/mybuttons"
+        android:backgroundTint="#FFFF00"
+
         android:padding="8dp"
         android:text="@string/_30s"
         android:textSize="30sp" />
@@ -28,30 +30,35 @@
         android:id="@+id/question"
         android:layout_width="139dp"
         android:layout_height="59dp"
+        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/timer"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/mybutton"
+
+        android:layout_marginStart="97dp"
+        android:background="@drawable/mybuttons"
+        android:backgroundTint="@color/colorAccent"
 
         android:paddingLeft="25dp"
         android:paddingStart="25dp"
         android:paddingTop="10dp"
         android:text="@string/_2_3"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="97dp" />
 
     <TextView
         android:id="@+id/score"
-        android:layout_width="79dp"
+        android:layout_width="93dp"
         android:layout_height="59dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/timer"
-        android:background="@drawable/mybutton"
-        android:backgroundTint="@color/colorAccent"
+        android:background="@drawable/mybuttons"
+        android:backgroundTint="#FF3333"
         android:paddingLeft="10dp"
+        android:paddingStart="10dp"
         android:text="@string/_0"
         android:textSize="30sp"
-        android:textStyle="bold"
-        android:paddingStart="10dp" />
+        android:textStyle="bold" />
 
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
@@ -65,16 +72,18 @@
             android:id="@+id/button"
             android:layout_width="178dp"
             android:layout_height="143dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/mybutton"
+            android:backgroundTint="#00FF00"
             android:text="@string/_25"
             android:textSize="40sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="211dp"
+            android:layout_width="179dp"
             android:layout_height="144dp"
-            android:background="@drawable/buttonn"
+            android:background="@drawable/mybutton"
+            android:backgroundTint="#00FFFF"
             android:text="@string/_35"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -85,7 +94,8 @@
             android:id="@+id/button3"
             android:layout_width="179dp"
             android:layout_height="148dp"
-            android:background="@drawable/buttonnn"
+            android:background="@drawable/mybutton"
+            android:backgroundTint="#0080FF"
             android:text="@string/_29"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -94,10 +104,10 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="195dp"
+            android:layout_width="179dp"
             android:layout_height="150dp"
-            android:background="#FF1
-"
+            android:background="@drawable/mybutton"
+            android:backgroundTint="#FF0000"
             android:text="@string/_39"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -116,7 +126,8 @@
         android:textColor="#ffffff"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:paddingStart="10dp" />
+        android:paddingStart="10dp"
+        android:layout_alignParentLeft="true" />
 
 
 </RelativeLayout>

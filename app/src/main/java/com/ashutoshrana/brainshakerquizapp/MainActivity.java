@@ -3,6 +3,7 @@ package com.ashutoshrana.brainshakerquizapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,17 +28,31 @@ String temp=null;
 
             @Override
             public void onClick(View view) {
-                temp=name.getText().toString();
-                if(temp.isEmpty())
-                    msg.setText("You can't leave this Empty !");
-                else{
-                    Intent game=new Intent(MainActivity.this,Main2Activity.class);
-                    String str=name.getText().toString();
-                    game.putExtra("Name",str);
-                    startActivity(game);
+//                temp=name.getText().toString();
+//                if(temp.isEmpty())
+//                    msg.setText("You can't leave this Empty !");
+//                else{
+//                    Intent game=new Intent(MainActivity.this,Main2Activity.class);
+//                    String str=name.getText().toString();
+//                    game.putExtra("Name",str);
+//                    startActivity(game);
+//
+//                    MainActivity.this.finish();
+//                }
 
-                    MainActivity.this.finish();
+                if(TextUtils.isEmpty(name.getText().toString())){
+                    name.setError(" Name Required");
+                    return;
+                }else{
+                    temp = name.getText().toString().trim();
+                    Intent game = new Intent(MainActivity.this, Main2Activity.class);
+                    game.putExtra("Name",temp);
+                    startActivity(game);
+                    finish();
+
                 }
+
+
 
             }
         });
