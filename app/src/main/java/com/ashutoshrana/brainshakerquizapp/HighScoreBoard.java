@@ -11,7 +11,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class HighScoreBoard extends AppCompatActivity {
-//ListView listView;
+
     ArrayList<Score> arrayList;
     MyAdapter myAdapter;
     RecyclerView recyclerView;
@@ -20,7 +20,7 @@ public class HighScoreBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score_board);
 
-//        listView=findViewById(R.id.list);
+
 
         ScoreDataBase scoreDataBase = new ScoreDataBase(HighScoreBoard.this);
         Cursor cursor = scoreDataBase.getData();
@@ -38,7 +38,7 @@ public class HighScoreBoard extends AppCompatActivity {
                 String percentage=cursor.getString(cursor.getColumnIndex("Percentage"));
                 String total_question_answered=cursor.getString(cursor.getColumnIndex("Total_Question_Answered"));
 
-                Score finalValue = (new Score(correct_answer + " " + incorrect_answer + " " + score + " "+percentage+" "+ total_question_answered));
+                Score finalValue = (new Score(correct_answer + " " , incorrect_answer + " " , score + " ",percentage+" ", ""+total_question_answered));
 
                 Log.d("test", String.valueOf(finalValue));
 
@@ -48,7 +48,9 @@ public class HighScoreBoard extends AppCompatActivity {
         }
 
         recyclerView = findViewById(R.id.list);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         myAdapter = new MyAdapter(this,arrayList);
         recyclerView.setAdapter(myAdapter);
 

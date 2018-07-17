@@ -7,8 +7,9 @@
 
     <TextView
         android:id="@+id/correctanswer"
-        android:layout_width="77dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:gravity="center_horizontal"
         android:text="Correct Answer"
         android:textColor="@android:color/black"
@@ -18,7 +19,8 @@
 
     <TextView
         android:id="@+id/incorrectanswer"
-        android:layout_width="70dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:text="Incorrect Answer"
@@ -28,7 +30,8 @@
 
     <TextView
         android:id="@+id/score1"
-        android:layout_width="60dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:text="Score"
@@ -39,7 +42,8 @@
 
     <TextView
         android:id="@+id/percentage"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:text="Percentage"
@@ -48,7 +52,8 @@
         android:textStyle="normal" />
     <TextView
         android:id="@+id/totalquesanswer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:text="Total Question Answered"

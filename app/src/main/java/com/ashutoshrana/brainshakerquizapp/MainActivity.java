@@ -28,17 +28,6 @@ String temp=null;
 
             @Override
             public void onClick(View view) {
-//                temp=name.getText().toString();
-//                if(temp.isEmpty())
-//                    msg.setText("You can't leave this Empty !");
-//                else{
-//                    Intent game=new Intent(MainActivity.this,Main2Activity.class);
-//                    String str=name.getText().toString();
-//                    game.putExtra("Name",str);
-//                    startActivity(game);
-//
-//                    MainActivity.this.finish();
-//                }
 
                 if(TextUtils.isEmpty(name.getText().toString())){
                     name.setError(" Name Required");

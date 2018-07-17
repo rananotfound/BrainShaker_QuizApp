@@ -29,7 +29,7 @@ public class ScoreBoard extends AppCompatActivity {
         final Integer answers_right = Integer.parseInt(getIntent().getStringExtra("Correct"));
         final Integer total_questions=Integer.parseInt(getIntent().getStringExtra("Questions"));
         final Integer incorrect_answer = total_questions-answers_right;
-        float percentage = ((float)answers_right / (float)total_questions)*100.00f;
+        float percentage = ((float)answers_right / (float)total_questions)*100;
 
         score.setText(score_new);
         name.setText(player_new);
